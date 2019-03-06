@@ -16,3 +16,10 @@ class User:
 
     def hasPermission(self, req: str) -> bool:
         return (req in self.permissions)
+
+    def getUserJSON(self):
+        return {
+            'username': self.username,
+            'type': self.type,
+            'credit': self.credit
+        }

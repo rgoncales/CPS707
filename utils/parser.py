@@ -10,7 +10,7 @@ def getUserFromString(string: str) -> str:
     }
 
 # returns string for entry into accounts file
-def getStringFromJSON(userInfo):
+def getUserFromJSON(userInfo):
     userName = appendSpaces(userInfo['username'], 15, False)
     userType = appendSpaces(userInfo['type'], 2, False)
     userCredit = appendSpaces(str(userInfo['credit']), 9, True)
@@ -23,7 +23,7 @@ def appendSpaces(str: str, length:int, rightAlign: bool) -> str:
     spaces = length - len(str)
     if rightAlign:
         for i in range(0, spaces):
-            str = ' ' + str
+            str = '0' + str
     else:
         for i in range(0, spaces):
             str += ' '
