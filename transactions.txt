@@ -1,4 +1,3 @@
-01 test1           FS 0000000.0
-01 test2           SS 0000000.0
-01 test3           BS 0000000.0
+03 test1                     rgoncales       100 099.99
+03 test3                     rgoncales       052 010.00
 00 rgoncales       AA 900000.00

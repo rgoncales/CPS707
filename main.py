@@ -8,6 +8,7 @@ import pprint
 
 usr = None
 accs = {}
+tickets = {}
 trans = []
 api = Api()
 
@@ -46,13 +47,19 @@ if __name__ == '__main__':
                 usr = res['result']
 
         elif INPUT == "LOGOUT":
-            res = api.logout(usr, accs, trans)
+            res = api.logout(usr, accs, trans, tickets)
             if res != None:
                 resetVars()
                 print(res['success'])
 
         elif INPUT == "CREATE":
             res = api.create(usr, accs)
+            if res != None:
+                trans.append(res['result'])
+                print(res['success'])
+
+        elif INPUT == "SELL":
+            res = api.sell(usr, tickets)
             if res != None:
                 trans.append(res['result'])
                 print(res['success'])

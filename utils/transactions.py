@@ -1,4 +1,5 @@
 from utils.parser import getUserFromJSON
+from utils.tickets import getTicketFromJSON
 from utils.settings import (
     CREATE,
     DELETE,
@@ -32,18 +33,18 @@ def type1(info):
 def type2(info):
     pass
 
-# length ?? => 03, 04
+# length 52 => 03, 04
 def type3(info):
-    pass
+    code = info['code']
+    ticket = getTicketFromJSON(info)
+    return code + ' ' + ticket
 
 def formatTransaction(action, info):
     info['code'] = getTransactionCode(action)
-    return {
-        CREATE: type1(info),
-        DELETE: type1(info),
-        ADD_CREDIT: type1(info),
-        LOGOUT: type1(info),
-        REFUND: type2(info),
-        SELL: type3(info),
-        BUY: type3(info)
-    }[action]
+    if action in {CREATE, DELETE, ADD_CREDIT, LOGOUT}:
+        return type1(info)
+    elif action in {REFUND}:
+        return type2(info)
+    elif action in {SELL, BUY}:
+        return type3(info)
+    return None

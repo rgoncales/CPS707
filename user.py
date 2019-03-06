@@ -23,3 +23,6 @@ class User:
             'type': self.type,
             'credit': self.credit
         }
+
+    def getUsername(self):
+        return self.username

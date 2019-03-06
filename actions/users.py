@@ -17,8 +17,8 @@ def new_user(usr, accs):
     trans = formatTransaction(CREATE, newUser)
     return res(trans, "Created new user.\n")
 
-def delete_user(usr, username):
+def delete_user(usr, accs):
     pass
 
-def add_credit(usr, username, credit):
+def add_credit(usr, accs):
     pass
