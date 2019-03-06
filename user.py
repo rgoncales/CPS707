@@ -13,3 +13,6 @@ class User:
               "  Type: {} \n"
               "Credit: {}"
               .format(self.username, self.type, self.credit))
+
+    def hasPermission(self, req: str) -> bool:
+        return (req in self.permissions)

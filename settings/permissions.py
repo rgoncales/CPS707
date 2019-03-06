@@ -1,12 +1,12 @@
-#cleareance levels
-CREATE = '01'
-DELETE = '02'
-SELL = '03'
-BUY = '04'
-REFUND = '05'
-ADD_CREDIT = '06'
-LOGOUT = '00'
-
+from settings.transactions import (
+    LOGOUT,
+    CREATE,
+    DELETE,
+    SELL,
+    BUY,
+    REFUND,
+    ADD_CREDIT
+)
 # Admin permissions
 def AA():
     return {
