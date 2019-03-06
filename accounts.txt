@@ -1,4 +1,4 @@
 rgoncales       AA 900000.00
-wbarker         AA 900000.99
+wbarker         FS 900000.99
 END
 UUUUUUUUUUUUUUU TT CCCCCCCCC

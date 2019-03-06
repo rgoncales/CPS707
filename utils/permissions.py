@@ -1,4 +1,4 @@
-from utils.transactions import (
+from utils.settings import (
     LOGOUT,
     CREATE,
     DELETE,
@@ -7,6 +7,9 @@ from utils.transactions import (
     REFUND,
     ADD_CREDIT
 )
+
+accountTypes = {'AA', 'FS', 'BS', 'SS'}
+
 # Admin permissions
 def AA():
     return {
