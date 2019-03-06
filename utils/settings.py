@@ -1,3 +1,8 @@
+# Files
+ACCOUNT_FILE = 'accounts.txt'
+TRANSACTION_FILE = 'transactions.txt'
+
+# Transaction types
 CREATE = 'CREATE'
 DELETE ='DELETE',
 SELL = 'SELL',
@@ -6,7 +11,7 @@ REFUND = 'REFUND',
 ADD_CREDIT = 'ADD_CREDIT',
 LOGOUT = 'LOGOUT'
 
-record = {
+codes = {
     CREATE : '01',
     DELETE : '02',
     SELL : '03',
@@ -16,12 +21,5 @@ record = {
     LOGOUT : '00',
 }
 
-allTransactionsList = {
-    'CREATE',
-    'DELETE',
-    'SELL',
-    'BUY',
-    'REFUND',
-    'ADD_CREDIT',
-    'LOGOUT'
-}
+def getTransactionCode(action):
+    return codes[action]

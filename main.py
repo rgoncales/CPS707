@@ -1,13 +1,12 @@
 from user import User
 from typing import Dict
+from utils.settings import ACCOUNT_FILE
 from utils.parser import getUserFromString
 from utils.errors import (INVALID_TRANSACTION, error)
 from api import Api
 import pprint
 
 usr = None
-ACCOUNT_FILE = 'accounts.txt'
-TRANSACTION_FILE = 'transactions.txt'
 accountDict = {}
 api = Api()
 
@@ -16,7 +15,7 @@ pp = pprint.PrettyPrinter(indent=4)
 
 if __name__ == '__main__':
     #read all users on file and put them into an array
-    srcFile = open(ACCOUNT_FILE, "r");
+    srcFile = open(ACCOUNT_FILE, 'r')
     for line in srcFile:
         line = line.strip('\n')
         if line == 'END':
@@ -24,6 +23,8 @@ if __name__ == '__main__':
         else:
             u = getUserFromString(line)
             accountDict[u['username']] = u
+    srcFile.close()
+
     INPUT = ''
     while 1:
         INPUT = input()
@@ -40,7 +41,7 @@ if __name__ == '__main__':
                 usr = res['result']
 
         elif INPUT == "LOGOUT":
-            res = api.logout(usr)
+            res = api.logout(usr, accountDict)
             if res != None:
                 print(res['success'])
                 usr = None

@@ -1,5 +1,5 @@
 from utils.permissions import auth
-from transactions.login import (session_new, session_end)
+from transactions.auth import (session_new, session_end)
 from transactions.users import new_user
 from utils.settings import (LOGOUT, CREATE)
 
@@ -11,10 +11,10 @@ class Api:
         except Exception as e:
             print(e)
 
-    def logout(self, usr):
+    def logout(self, usr, dict):
         try:
             auth(usr, LOGOUT)
-            return session_end(usr)
+            return session_end(usr, dict)
         except Exception as e:
             print(e)
 

@@ -1,5 +1,6 @@
 from user import User
-from utils.parser import res
+from utils.parser import res, getStringFromJSON
+from utils.settings import ACCOUNT_FILE
 
 def session_new(usr, accounts):
     if usr != None:
@@ -11,5 +12,12 @@ def session_new(usr, accounts):
     user = User(entry['username'], entry['type'], entry['credit'])
     return res(user, 'Logged in.\n')
 
-def session_end(usr):
+def session_end(usr, accounts):
+    # write accounts file
+    f = open(ACCOUNT_FILE, 'w')
+    for key, value in accounts.items():
+        f.write(getStringFromJSON(value)+'\n')
+    f.write('END')
+    f.close()
+
     return res(None, 'Session finished.\n')
