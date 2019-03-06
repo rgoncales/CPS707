@@ -1,8 +1,9 @@
 from user import User
 from typing import Dict
 from parser import getUserFromString
+from settings.errors import INVALID_TRANSACTION
 
-currentUser = User
+currentUser = None
 ACCOUNT_FILE = 'accounts.txt'
 TRANSACTION_FILE = 'transactions.txt'
 accountDict = {}
@@ -16,13 +17,22 @@ if __name__ == '__main__':
             break
         else:
             u = getUserFromString(line)
-            print (u)
+            #print (u)
             accountDict[u['username']] = u
 
-    USER_INPUT = ''
+    INPUT = ''
     while 1:
-        USER_INPUT = input("\nEnter username:")
-        if USER_INPUT == 'Q':
+        INPUT = input("\n")
+        if INPUT == 'Q':
             break
-        if USER_INPUT in accountDict:
-            currentUser = User(u['username'], u['type'], u['credit'])
+        if currentUser is None:
+            # only accept login
+            if INPUT == "LOGIN":
+                INPUT = input("\nEnter username:")
+                if INPUT in accountDict:
+                    print("Logged in!")
+                    currentUser = User(u['username'], u['type'], u['credit'])
+                else:
+                    print("No such user.")
+        else:
+            print(INVALID_TRANSACTION)
