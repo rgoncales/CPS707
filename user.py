@@ -1,6 +1,6 @@
 # Will instanciate and hold user info
 # Username, Credit, Type
-from settings.permissions import getPermissions
+from utils.permissions import getPermissions
 class User:
     def __init__(self, username, type, credit):
         self.username = username

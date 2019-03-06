@@ -1,8 +1,8 @@
 from user import User
 from typing import Dict
-from parser import getUserFromString
-from settings.errors import INVALID_TRANSACTION
-from settings.transactions import allTransactionsList
+from utils.parser import getUserFromString
+from utils.errors import (INVALID_TRANSACTION, error)
+from utils.transactions import allTransactionsList
 from api import Api
 
 usr = None
@@ -20,7 +20,6 @@ if __name__ == '__main__':
             break
         else:
             u = getUserFromString(line)
-            #print (u)
             accountDict[u['username']] = u
 
     INPUT = ''
@@ -31,13 +30,15 @@ if __name__ == '__main__':
         # only accept login
         elif INPUT == "LOGIN":
             if usr != None:
-                print(INVALID_TRANSACTION)
+                error('User already logged in.')
                 continue
-            INPUT = input("Enter username:")
-            usr = api.login(usr, INPUT, accountDict)
+            usr = api.login(usr, accountDict)
         elif INPUT == "LOGOUT":
             res = api.logout(usr)
             if res != None:
                 print(res)
+                usr = None
+        elif INPUT == "CREATE":
+            res = api.create(usr)
         else:
-            print(INVALID_TRANSACTION)
+            error(INVALID_TRANSACTION)

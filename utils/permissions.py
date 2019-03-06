@@ -1,4 +1,4 @@
-from settings.transactions import (
+from utils.transactions import (
     LOGOUT,
     CREATE,
     DELETE,
@@ -54,3 +54,9 @@ def getPermissions(userType):
         'BS': BS(),
         'SS': SS(),
     }[userType]
+
+def auth(usr, req):
+    if usr == None:
+        raise ValueError("User must be logged in.")
+    elif not usr.hasPermission(req):
+        raise ValueError("Transaction not permitted.")
