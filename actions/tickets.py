@@ -38,7 +38,7 @@ def buy_ticket(usr, tickets):
         raise ValueError("Not enough tickets for sale.")
 
     totalCost = numPurchased * event['price']
-    confirm = input("Total cost: [${}]. Continue [Y][N]:".format(totalCost))
+    confirm = input("Total cost: [${}]. Continue [Y][N]: ".format(totalCost))
 
     if confirm == 'Y':
         # update all records

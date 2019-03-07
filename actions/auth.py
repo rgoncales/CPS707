@@ -13,7 +13,7 @@ from utils.settings import (
 def session_new(usr, accs):
     if usr != None:
         raise ValueError("User already logged in.")
-    username = input("Enter username:")
+    username = input("Enter username: ")
     if username not in accs:
         raise ValueError("User not found.")
     user = accs[username]
