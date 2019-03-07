@@ -11,7 +11,9 @@ from utils.settings import (
     AA,
     FS,
     BS,
-    SS
+    SS,
+    MAX_CREDIT,
+    MIN_CREDIT
 )
 from utils.permissions import getPermissions
 class User:
@@ -38,7 +40,11 @@ class User:
         }
 
     def chargeCredit(self, amount):
+        if (self.credit - amount) < MIN_CREDIT:
+            raise ValueError("User does not have enough credit.")
         self.credit -= amount
 
     def addCredit(self, amount):
+        if (self.credit + amount) > MAX_CREDIT:
+            raise ValueError("Maximum credit exceeded.")
         self.credit += amount

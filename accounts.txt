@@ -1,6 +1,5 @@
 rgoncales       AA 900000.00
-wbarker         FS 901000.99
-test1           FS 000023.43
-test2           SS 000386.48
-test3           BS 000133.32
+wbarker         FS 901003.21
+test1           FS 000002.10
+test2           BS 000999.00
 END

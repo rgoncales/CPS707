@@ -17,3 +17,6 @@ AA = 'AA'
 FS = 'FS'
 BS = 'BS'
 SS = 'SS'
+
+MAX_CREDIT = 999999.00
+MIN_CREDIT = 0.00

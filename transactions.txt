@@ -1,3 +1,2 @@
-05 test2 test3 133.32
-05 test2 test1 23.43
+03 test2                     rgoncales       099 123.12
 00 rgoncales       AA 900000.00
