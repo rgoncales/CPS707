@@ -1,4 +1,0 @@
-rgoncales       AA 900000.00
-wbarker         FS 893734.68
-test            SS 006001.00
-END
