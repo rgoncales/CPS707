@@ -5,13 +5,17 @@ from utils.settings import (
     SELL,
     BUY,
     REFUND,
-    ADD_CREDIT
+    ADD_CREDIT,
+    AA,
+    FS,
+    BS,
+    SS
 )
 
-accountTypes = {'AA', 'FS', 'BS', 'SS'}
+accountTypes = {AA, FS, BS, SS}
 
 # Admin permissions
-def AA():
+def AA_permission():
     return {
         LOGOUT,
         CREATE,
@@ -23,7 +27,7 @@ def AA():
     }
 
 # Full-Standard permissions
-def FS():
+def FS_permission():
     return {
         LOGOUT,
         SELL,
@@ -33,7 +37,7 @@ def FS():
     }
 
 # Buy-Standard permissions
-def BS():
+def BS_permission():
     return {
         LOGOUT,
         BUY,
@@ -42,7 +46,7 @@ def BS():
     }
 
 # Sell_Standard permissions
-def SS():
+def SS_permission():
     return {
         LOGOUT,
         SELL,
@@ -52,10 +56,10 @@ def SS():
 
 def getPermissions(userType):
     return {
-        'AA': AA(),
-        'FS': FS(),
-        'BS': BS(),
-        'SS': SS(),
+        AA: AA_permission(),
+        FS: FS_permission(),
+        BS: BS_permission(),
+        SS: SS_permission(),
     }[userType]
 
 def auth(usr, req):

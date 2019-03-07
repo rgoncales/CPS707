@@ -1,5 +1,6 @@
 rgoncales       AA 900000.00
-wbarker         FS 900000.99
+wbarker         FS 901000.99
 test1           FS 0000000.0
-test2           SS 0000000.0
+test2           SS 000543.23
+test3           BS 0000000.0
 END

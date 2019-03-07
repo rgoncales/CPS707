@@ -1,8 +1,14 @@
+from decimal import Decimal
 from utils.parser import res
 from utils.users import getUserJSON
 from utils.permissions import accountTypes
 from utils.transactions import formatTransaction
-from utils.settings import (CREATE, DELETE)
+from utils.settings import (
+    CREATE,
+    DELETE,
+    ADD_CREDIT,
+    AA
+)
 
 def new_user(usr, accs):
     username = input("New username: ")
@@ -30,4 +36,19 @@ def delete_user(usr, accs):
     return res(trans, "Deleted user.\n")
 
 def add_credit(usr, accs):
-    pass
+    trans = ''
+    credit = Decimal(input("Enter credit amount: "))
+    if credit > 1000:
+        raise ValueError("Can only add $1000 per transaction.")
+
+    if usr.type == AA:
+        targetUsr = input("Enter target username: ")
+        if targetUsr not in accs:
+            raise ValueError("User does not exist.")
+        accs[targetUsr]['credit'] += credit
+        targetUsr = accs[targetUsr]
+        trans = formatTransaction(ADD_CREDIT, targetUsr)
+    else:
+        usr.addCredit(credit)
+        trans = formatTransaction(ADD_CREDIT, usr.getUserJSON())
+    return res(trans, "Added credit to user.\n")

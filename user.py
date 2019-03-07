@@ -1,5 +1,18 @@
 # Will instanciate and hold user info
 # Username, Credit, Type
+from utils.settings import (
+    LOGOUT,
+    CREATE,
+    DELETE,
+    SELL,
+    BUY,
+    REFUND,
+    ADD_CREDIT,
+    AA,
+    FS,
+    BS,
+    SS
+)
 from utils.permissions import getPermissions
 class User:
     def __init__(self, username, type, credit):
@@ -26,3 +39,6 @@ class User:
 
     def chargeCredit(self, amount):
         self.credit -= amount
+
+    def addCredit(self, amount):
+        self.credit += amount

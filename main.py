@@ -8,6 +8,7 @@ from utils.settings import (
     LOGOUT,
     CREATE,
     DELETE,
+    ADD_CREDIT,
     SELL,
     BUY
 )
@@ -44,8 +45,6 @@ if __name__ == '__main__':
         elif INPUT == LOGOUT:
             res = api.logout(usr, accs, trans, tickets)
             if res != None:
-                usr.description()
-                accs[usr.username] = usr.getUserJSON
                 usr = None
                 trans = []
                 print(res['success'])
@@ -62,6 +61,12 @@ if __name__ == '__main__':
                 trans.append(res['result'])
                 print(res['success'])
 
+        elif INPUT == ADD_CREDIT:
+            res = api.addCredit(usr, accs)
+            if res != None:
+                trans.append(res['result'])
+                print(res['success'])
+
         elif INPUT == SELL:
             res = api.sell(usr, tickets)
             if res != None:
@@ -73,5 +78,6 @@ if __name__ == '__main__':
             if res != None:
                 trans.append(res['result'])
                 print(res['success'])
+
         else:
             error(INVALID_TRANSACTION)

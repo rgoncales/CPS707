@@ -32,13 +32,13 @@ def buy_ticket(usr, tickets):
     if numPurchased > 4:
         raise ValueError("Only allowed 4 tickets per transaction.")
     if key not in tickets:
-        raise ValueError("No event by that name.")
+        raise ValueError("No such event.")
     event = tickets[key]
     if event['num'] < numPurchased:
         raise ValueError("Not enough tickets for sale.")
 
     totalCost = numPurchased * event['price']
-    confirm = input("Total cost: [{}]. Continue [Y][N]:".format(totalCost))
+    confirm = input("Total cost: [${}]. Continue [Y][N]:".format(totalCost))
 
     if confirm == 'Y':
         # update all records

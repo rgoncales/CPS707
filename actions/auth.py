@@ -21,7 +21,7 @@ def session_new(usr, accs):
     return res(user, 'Logged in.\n')
 
 def session_end(usr, accs, trans, tickets):
-    accs[usr.username] = usr.getUserJSON
+    accs[usr.username] = usr.getUserJSON()
     # write accs file
     f = open(ACCOUNT_FILE, 'w')
     for key, value in accs.items():
