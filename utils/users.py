@@ -9,11 +9,3 @@ def getUserFromJSON(userInfo):
 
     result = userName + ' ' + userType + ' ' + userCredit
     return result
-
-# creates a JSON from userInfo
-def getUserJSON(name, userType, credit = 0.00):
-    return {
-        'username': name,
-        'type': userType,
-        'credit': Decimal(credit)
-    }

@@ -1,5 +1,6 @@
 # Will instanciate and hold user info
 # Username, Credit, Type
+from decimal import Decimal
 from utils.settings import (
     LOGOUT,
     CREATE,
@@ -17,11 +18,19 @@ from utils.settings import (
 )
 from utils.permissions import getPermissions
 class User:
-    def __init__(self, username, type, credit):
+    def __init__(self, username, type, credit = 0.00):
         self.username = username
         self.type = type
-        self.credit = credit
+        self.credit = Decimal(credit)
         self.permissions = getPermissions(self.type)
+
+    @classmethod
+    def fromJSON(cls, userJSON):
+        tempName = userJSON['username']
+        tempType = userJSON['type']
+        tempCredit = userJSON['credit']
+        return cls(tempName, tempType, tempCredit)
+
 
     def description(self) -> None:
         print("  Name: {} \n"
@@ -32,7 +41,7 @@ class User:
     def hasPermission(self, req: str) -> bool:
         return (req in self.permissions)
 
-    def getUserJSON(self):
+    def asJSON(self):
         return {
             'username': self.username,
             'type': self.type,

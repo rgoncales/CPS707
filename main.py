@@ -47,6 +47,8 @@ if __name__ == '__main__':
             res = api.logout(usr, accs, trans, tickets)
             if res != None:
                 usr = None
+                accs = readAccountFile()
+                tickets = readTicketFile()
                 trans = []
                 print(res['success'])
 
@@ -85,6 +87,6 @@ if __name__ == '__main__':
             if res != None:
                 trans.append(res['result'])
                 print(res['success'])
-
         else:
             error(INVALID_TRANSACTION)
+        print('')

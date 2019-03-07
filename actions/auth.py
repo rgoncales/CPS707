@@ -16,20 +16,18 @@ def session_new(usr, accs):
     username = input("Enter username:")
     if username not in accs:
         raise ValueError("User not found.")
-    entry = accs[username]
-    user = User(entry['username'], entry['type'], entry['credit'])
-    return res(user, 'Logged in.\n')
+    user = accs[username]
+    return res(user, 'Logged in.')
 
 def session_end(usr, accs, trans, tickets):
-    accs[usr.username] = usr.getUserJSON()
     # write accs file
     f = open(ACCOUNT_FILE, 'w')
     for key, value in accs.items():
-        f.write(getUserFromJSON(value)+'\n')
+        f.write(getUserFromJSON(value.asJSON())+'\n')
     f.write('END')
     f.close()
 
-    logout = formatTransaction(LOGOUT, usr.getUserJSON())
+    logout = formatTransaction(LOGOUT, usr.asJSON())
     trans.append(logout)
     # write transactions file
     f = open(TRANSACTION_FILE, 'w')
@@ -44,4 +42,4 @@ def session_end(usr, accs, trans, tickets):
     f.write('END')
     f.close()
 
-    return res(None, 'Session finished.\n')
+    return res(None, 'Session finished.')

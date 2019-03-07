@@ -1,2 +1,2 @@
-03 test2                     rgoncales       099 123.12
+05 wbarker         test            003000.00
 00 rgoncales       AA 900000.00

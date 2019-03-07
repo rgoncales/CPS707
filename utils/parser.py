@@ -1,5 +1,6 @@
 import re
 from decimal import Decimal
+from user import User
 from utils.settings import (ACCOUNT_FILE, TICKET_FILE)
 from utils.tickets import getKey
 
@@ -13,18 +14,19 @@ def readAccountFile():
             break
         else:
             u = getUserFromString(line)
-            accs[u['username']] = u
+            accs[u.username] = u
     srcFile.close()
     return accs
 
 # parse userInfo from single line
 def getUserFromString(string: str) -> str:
     userInfo = re.split("\s+", string)
-    return {
+    userJSON = {
         'username': userInfo[0],
         'type': userInfo[1],
         'credit': Decimal(userInfo[2])
     }
+    return User.fromJSON(userJSON)
 
 # get tickets from input file
 def readTicketFile():

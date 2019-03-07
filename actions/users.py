@@ -1,6 +1,6 @@
 from decimal import Decimal
+from user import User
 from utils.parser import res
-from utils.users import getUserJSON
 from utils.permissions import accountTypes
 from utils.transactions import formatTransaction
 from utils.settings import (
@@ -20,10 +20,10 @@ def new_user(usr, accs):
     userType = input("Type [AA, FS, SS, BS]: ")
     if userType not in accountTypes:
         raise ValueError("Invalid account type.")
-    newUser = getUserJSON(username, userType)
+    newUser = User(username, userType)
     accs[username] = newUser
-    trans = formatTransaction(CREATE, newUser)
-    return res(trans, "Created new user.\n")
+    trans = formatTransaction(CREATE, newUser.asJSON())
+    return res(trans, "Created new user.")
 
 def delete_user(usr, accs):
     username = input("User to delete: ")
@@ -33,8 +33,8 @@ def delete_user(usr, accs):
         raise ValueError("User doesn't exist.")
     deletedUser = accs[username]
     del accs[username]
-    trans = formatTransaction(DELETE, deletedUser)
-    return res(trans, "Deleted user.\n")
+    trans = formatTransaction(DELETE, deletedUser.asJSON())
+    return res(trans, "Deleted user.")
 
 def add_credit(usr, accs):
     trans = ''
@@ -43,16 +43,16 @@ def add_credit(usr, accs):
         raise ValueError("Can only add $1000 per transaction.")
 
     if usr.type == AA:
-        targetUsr = input("Enter target username: ")
-        if targetUsr not in accs:
+        username = input("Enter target username: ")
+        if username not in accs:
             raise ValueError("User does not exist.")
-        accs[targetUsr]['credit'] += credit
-        targetUsr = accs[targetUsr]
-        trans = formatTransaction(ADD_CREDIT, targetUsr)
+        toUser = accs[username]
+        toUser.addCredit(credit)
+        trans = formatTransaction(ADD_CREDIT, toUser.asJSON())
     else:
         usr.addCredit(credit)
-        trans = formatTransaction(ADD_CREDIT, usr.getUserJSON())
-    return res(trans, "Added credit to user.\n")
+        trans = formatTransaction(ADD_CREDIT, usr.asJSON())
+    return res(trans, "Added credit to user.")
 
 def refund_credit(usr, accs):
     fromUser = input("Refund from [username]: ")
@@ -65,14 +65,18 @@ def refund_credit(usr, accs):
 
     amount = Decimal(input("Amount to refund: "))
 
-    accs[fromUser]['credit'] -= amount
-    accs[toUser]['credit'] += amount
+    # instanciate users
+    seller = accs[fromUser]
+    buyer = accs[toUser]
+    # charge/credit accounts
+    seller.chargeCredit(amount)
+    buyer.addCredit(amount)
 
     refundJSON = {
-        'from': fromUser,
-        'to': toUser,
-        'credit': str(amount)
+        'from': seller.username,
+        'to': buyer.username,
+        'credit': amount
     }
 
     trans = formatTransaction(REFUND, refundJSON)
-    return res(trans, "Refunded credit to user.\n")
+    return res(trans, "Refunded credit to user.")

@@ -1,3 +1,4 @@
+from utils.parser import appendSpaces
 from utils.users import getUserFromJSON
 from utils.tickets import getTicketFromJSON
 from utils.settings import (
@@ -29,12 +30,12 @@ def type1(info):
     user = getUserFromJSON(info)
     return code + ' ' + user
 
-# length ?? => 05
+# length 43 => 05
 def type2(info):
     code = info['code']
-    fromUser = info['from']
-    toUser = info['to']
-    credit = info['credit']
+    fromUser = appendSpaces(info['from'], 15, False)
+    toUser = appendSpaces(info['to'], 15, False)
+    credit = appendSpaces(str('%.2f' % info['credit']), 9, True)
     return code + ' ' + fromUser + ' ' + toUser + ' ' + credit
 
 # length 52 => 03, 04

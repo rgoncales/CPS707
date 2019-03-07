@@ -21,7 +21,7 @@ def sell_ticket(usr, tickets):
     key = getKey(title, usr.username)
     tickets[key] = newTicket
     trans = formatTransaction(SELL, newTicket)
-    return res(trans, "Added new tickets for sale.\n")
+    return res(trans, "Added new tickets for sale.")
 
 def buy_ticket(usr, tickets):
     title = input("Event title: ")
@@ -46,6 +46,6 @@ def buy_ticket(usr, tickets):
         event['num'] -= numPurchased
         tickets[key] = event
         trans = formatTransaction(BUY, event)
-        return res(trans, "Purchased tickets.\n")
+        return res(trans, "Purchased tickets.")
     else:
-        print("Purchase cancelled.\n")
+        print("Purchase cancelled.")
