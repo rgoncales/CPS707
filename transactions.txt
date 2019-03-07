@@ -1,2 +1,2 @@
-02 test3           BS 0000000.0
-00 rgoncales       AA 900000.00
+04 test                      rgoncales       003 054.32
+00 rgoncales       AA 899837.04

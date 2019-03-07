@@ -1,6 +1,7 @@
 from user import User
-from utils.parser import res, getUserFromJSON
+from utils.parser import res
 from utils.transactions import formatTransaction
+from utils.users import getUserFromJSON
 from utils.tickets import getTicketFromJSON
 from utils.settings import (
     ACCOUNT_FILE,
@@ -20,6 +21,7 @@ def session_new(usr, accs):
     return res(user, 'Logged in.\n')
 
 def session_end(usr, accs, trans, tickets):
+    accs[usr.username] = usr.getUserJSON
     # write accs file
     f = open(ACCOUNT_FILE, 'w')
     for key, value in accs.items():
@@ -35,6 +37,7 @@ def session_end(usr, accs, trans, tickets):
         f.write(value+'\n')
     f.close()
 
+    # write tickets file
     f = open(TICKET_FILE, 'w')
     for key, value in tickets.items():
         f.write(getTicketFromJSON(value)+'\n')

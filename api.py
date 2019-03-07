@@ -1,8 +1,8 @@
 from utils.permissions import auth
 from actions.auth import (session_new, session_end)
 from actions.users import (new_user, delete_user)
-from actions.tickets import sell_ticket
-from utils.settings import (LOGOUT, CREATE, DELETE, SELL)
+from actions.tickets import (sell_ticket, buy_ticket)
+from utils.settings import (LOGOUT, CREATE, DELETE, SELL, BUY)
 
 
 class Api:
@@ -37,5 +37,12 @@ class Api:
         try:
             auth(usr, SELL)
             return sell_ticket(usr, tickets)
+        except Exception as e:
+            print(e)
+
+    def buy(self, usr, tickets):
+        try:
+            auth(usr, BUY)
+            return buy_ticket(usr, tickets)
         except Exception as e:
             print(e)

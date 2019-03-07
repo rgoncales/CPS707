@@ -1,15 +1,15 @@
 from user import User
 from typing import Dict
-from utils.parser import getUserFromString
+from utils.parser import (readAccountFile, readTicketFile)
 from utils.errors import (INVALID_TRANSACTION, error)
 from api import Api
 from utils.settings import (
-    ACCOUNT_FILE,
     LOGIN,
     LOGOUT,
     CREATE,
     DELETE,
-    SELL
+    SELL,
+    BUY
 )
 import pprint
 
@@ -23,16 +23,8 @@ api = Api()
 pp = pprint.PrettyPrinter(indent=4)
 
 if __name__ == '__main__':
-    #read all users on file and put them into an array
-    srcFile = open(ACCOUNT_FILE, 'r')
-    for line in srcFile:
-        line = line.strip('\n')
-        if line == 'END':
-            break
-        else:
-            u = getUserFromString(line)
-            accs[u['username']] = u
-    srcFile.close()
+    accs = readAccountFile()
+    tickets = readTicketFile()
 
     INPUT = ''
     while 1:
@@ -52,6 +44,8 @@ if __name__ == '__main__':
         elif INPUT == LOGOUT:
             res = api.logout(usr, accs, trans, tickets)
             if res != None:
+                usr.description()
+                accs[usr.username] = usr.getUserJSON
                 usr = None
                 trans = []
                 print(res['success'])
@@ -70,6 +64,12 @@ if __name__ == '__main__':
 
         elif INPUT == SELL:
             res = api.sell(usr, tickets)
+            if res != None:
+                trans.append(res['result'])
+                print(res['success'])
+
+        elif INPUT == BUY:
+            res = api.buy(usr, tickets)
             if res != None:
                 trans.append(res['result'])
                 print(res['success'])

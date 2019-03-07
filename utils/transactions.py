@@ -1,4 +1,4 @@
-from utils.parser import getUserFromJSON
+from utils.users import getUserFromJSON
 from utils.tickets import getTicketFromJSON
 from utils.settings import (
     CREATE,

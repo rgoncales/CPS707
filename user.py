@@ -24,5 +24,5 @@ class User:
             'credit': self.credit
         }
 
-    def getUsername(self):
-        return self.username
+    def chargeCredit(self, amount):
+        self.credit -= amount

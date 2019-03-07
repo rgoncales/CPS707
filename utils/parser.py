@@ -1,4 +1,21 @@
 import re
+from decimal import Decimal
+from utils.settings import (ACCOUNT_FILE, TICKET_FILE)
+from utils.tickets import getKey
+
+# get accounts from input file
+def readAccountFile():
+    accs = {}
+    srcFile = open(ACCOUNT_FILE, 'r')
+    for line in srcFile:
+        line = line.strip('\n')
+        if line == 'END':
+            break
+        else:
+            u = getUserFromString(line)
+            accs[u['username']] = u
+    srcFile.close()
+    return accs
 
 # parse userInfo from single line
 def getUserFromString(string: str) -> str:
@@ -6,17 +23,33 @@ def getUserFromString(string: str) -> str:
     return {
         'username': userInfo[0],
         'type': userInfo[1],
-        'credit': userInfo[2]
+        'credit': Decimal(userInfo[2])
     }
 
-# returns string for entry into accounts file
-def getUserFromJSON(userInfo):
-    userName = appendSpaces(userInfo['username'], 15, False)
-    userType = appendSpaces(userInfo['type'], 2, False)
-    userCredit = appendSpaces(str(userInfo['credit']), 9, True)
+# get tickets from input file
+def readTicketFile():
+    tickets = {}
+    srcFile = open(TICKET_FILE, 'r')
+    for line in srcFile:
+        line = line.strip('\n')
+        if line == 'END':
+            break
+        else:
+            t = getTicketFromString(line)
+            key = getKey(t['title'], t['seller'])
+            tickets[key] = t
+    srcFile.close()
+    return tickets
 
-    result = userName + ' ' + userType + ' ' + userCredit
-    return result
+# parse ticketInfo from single line
+def getTicketFromString(string: str) -> str:
+    ticketInfo = re.split("\s+", string)
+    return {
+        'title': ticketInfo[0],
+        'seller': ticketInfo[1],
+        'num': int(ticketInfo[2]),
+        'price': Decimal(ticketInfo[3])
+    }
 
 # append spaces to make line proper length
 def appendSpaces(str: str, length:int, rightAlign: bool) -> str:
@@ -28,14 +61,6 @@ def appendSpaces(str: str, length:int, rightAlign: bool) -> str:
         for i in range(0, spaces):
             str += ' '
     return str
-
-# creates a JSON from userInfo
-def getUserJSON(name, userType, credit = 0.00):
-    return {
-        'username': name,
-        'type': userType,
-        'credit': credit
-    }
 
 # returns a formatted result dict
 def res(result, successMsg = ''):

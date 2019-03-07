@@ -1,11 +1,11 @@
-from utils.parser import appendSpaces
+import utils.parser
 
 # returns string for entry into tickets file
 def getTicketFromJSON(ticketInfo):
-    title = appendSpaces(ticketInfo['title'], 25, False)
-    seller = appendSpaces(ticketInfo['seller'], 15, False)
-    numAvailable = appendSpaces(str(ticketInfo['num']), 3, True)
-    price = appendSpaces(str(ticketInfo['price']), 6, True)
+    title = utils.parser.appendSpaces(ticketInfo['title'], 25, False)
+    seller = utils.parser.appendSpaces(ticketInfo['seller'], 15, False)
+    numAvailable = utils.parser.appendSpaces(str(ticketInfo['num']), 3, True)
+    price = utils.parser.appendSpaces(str(ticketInfo['price']), 6, True)
 
     result = title + ' ' + seller + ' ' + numAvailable + ' ' + price
     return result
@@ -17,3 +17,7 @@ def getTicketJSON(title, seller, numAvailable, price):
         'num': numAvailable,
         'price': price
     }
+
+def getKey(title, seller):
+    key = title + '' + seller
+    return key
