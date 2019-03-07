@@ -1,8 +1,8 @@
 from utils.permissions import auth
 from actions.auth import (session_new, session_end)
-from actions.users import new_user
+from actions.users import (new_user, delete_user)
 from actions.tickets import sell_ticket
-from utils.settings import (LOGOUT, CREATE, SELL)
+from utils.settings import (LOGOUT, CREATE, DELETE, SELL)
 
 
 class Api:
@@ -23,6 +23,13 @@ class Api:
         try:
             auth(usr, CREATE)
             return new_user(usr, accs)
+        except Exception as e:
+            print(e)
+
+    def delete(self, usr, accs):
+        try:
+            auth(usr, DELETE)
+            return delete_user(usr, accs)
         except Exception as e:
             print(e)
 

@@ -1,9 +1,16 @@
 from user import User
 from typing import Dict
-from utils.settings import ACCOUNT_FILE
 from utils.parser import getUserFromString
 from utils.errors import (INVALID_TRANSACTION, error)
 from api import Api
+from utils.settings import (
+    ACCOUNT_FILE,
+    LOGIN,
+    LOGOUT,
+    CREATE,
+    DELETE,
+    SELL
+)
 import pprint
 
 usr = None
@@ -14,10 +21,6 @@ api = Api()
 
 #for debugging
 pp = pprint.PrettyPrinter(indent=4)
-
-def resetVars():
-    usr = None
-    trans = []
 
 if __name__ == '__main__':
     #read all users on file and put them into an array
@@ -37,7 +40,7 @@ if __name__ == '__main__':
         if INPUT == 'Q':
             break
 
-        elif INPUT == "LOGIN":
+        elif INPUT == LOGIN:
             if usr != None:
                 error('User already logged in.')
                 continue
@@ -46,19 +49,26 @@ if __name__ == '__main__':
                 print(res['success'])
                 usr = res['result']
 
-        elif INPUT == "LOGOUT":
+        elif INPUT == LOGOUT:
             res = api.logout(usr, accs, trans, tickets)
             if res != None:
-                resetVars()
+                usr = None
+                trans = []
                 print(res['success'])
 
-        elif INPUT == "CREATE":
+        elif INPUT == CREATE:
             res = api.create(usr, accs)
             if res != None:
                 trans.append(res['result'])
                 print(res['success'])
 
-        elif INPUT == "SELL":
+        elif INPUT == DELETE:
+            res = api.delete(usr, accs)
+            if res != None:
+                trans.append(res['result'])
+                print(res['success'])
+
+        elif INPUT == SELL:
             res = api.sell(usr, tickets)
             if res != None:
                 trans.append(res['result'])

@@ -1,3 +1,2 @@
-03 test1                     rgoncales       100 099.99
-03 test3                     rgoncales       052 010.00
+02 test3           BS 0000000.0
 00 rgoncales       AA 900000.00

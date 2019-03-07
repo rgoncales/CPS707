@@ -1,24 +1,32 @@
 from utils.parser import (getUserJSON, res)
 from utils.permissions import accountTypes
 from utils.transactions import formatTransaction
-from utils.settings import CREATE
+from utils.settings import (CREATE, DELETE)
 
 def new_user(usr, accs):
-    userName = input("New username: ")
-    if len(userName) < 4 or len(userName) > 15:
+    username = input("New username: ")
+    if len(username) < 4 or len(username) > 15:
         raise ValueError("Username must be 4 to 15 characters.")
-    if userName in accs:
+    if username in accs:
         raise ValueError("Username already exists.")
     userType = input("Type [AA, FS, SS, BS]: ")
     if userType not in accountTypes:
         raise ValueError("Invalid account type.")
-    newUser = getUserJSON(userName, userType)
-    accs[userName] = newUser
+    newUser = getUserJSON(username, userType)
+    accs[username] = newUser
     trans = formatTransaction(CREATE, newUser)
     return res(trans, "Created new user.\n")
 
 def delete_user(usr, accs):
-    pass
+    username = input("User to delete: ")
+    if usr.getUsername == username:
+        raise ValueError("Cannot delete yourself.")
+    if username not in accs:
+        raise ValueError("User doesn't exist.")
+    deletedUser = accs[username]
+    del accs[username]
+    trans = formatTransaction(DELETE, deletedUser)
+    return res(trans, "Deleted user.\n")
 
 def add_credit(usr, accs):
     pass
