@@ -32,7 +32,6 @@ def FS_permission():
         LOGOUT,
         SELL,
         BUY,
-        REFUND,
         ADD_CREDIT,
     }
 
@@ -41,7 +40,6 @@ def BS_permission():
     return {
         LOGOUT,
         BUY,
-        REFUND,
         ADD_CREDIT,
     }
 
@@ -50,7 +48,6 @@ def SS_permission():
     return {
         LOGOUT,
         SELL,
-        REFUND,
         ADD_CREDIT,
     }
 

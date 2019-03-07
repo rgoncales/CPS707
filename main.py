@@ -9,6 +9,7 @@ from utils.settings import (
     CREATE,
     DELETE,
     ADD_CREDIT,
+    REFUND,
     SELL,
     BUY
 )
@@ -63,6 +64,12 @@ if __name__ == '__main__':
 
         elif INPUT == ADD_CREDIT:
             res = api.addCredit(usr, accs)
+            if res != None:
+                trans.append(res['result'])
+                print(res['success'])
+
+        elif INPUT == REFUND:
+            res = api.refund(usr, accs)
             if res != None:
                 trans.append(res['result'])
                 print(res['success'])

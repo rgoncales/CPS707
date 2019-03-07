@@ -7,6 +7,7 @@ from utils.settings import (
     CREATE,
     DELETE,
     ADD_CREDIT,
+    REFUND,
     AA
 )
 
@@ -52,3 +53,26 @@ def add_credit(usr, accs):
         usr.addCredit(credit)
         trans = formatTransaction(ADD_CREDIT, usr.getUserJSON())
     return res(trans, "Added credit to user.\n")
+
+def refund_credit(usr, accs):
+    fromUser = input("Refund from [username]: ")
+    if fromUser not in accs:
+        raise ValueError("No such user.")
+
+    toUser = input("Refund to [username]: ")
+    if toUser not in accs:
+        raise ValueError("No such user.")
+
+    amount = Decimal(input("Amount to refund: "))
+
+    accs[fromUser]['credit'] -= amount
+    accs[toUser]['credit'] += amount
+
+    refundJSON = {
+        'from': fromUser,
+        'to': toUser,
+        'credit': str(amount)
+    }
+
+    trans = formatTransaction(REFUND, refundJSON)
+    return res(trans, "Refunded credit to user.\n")

@@ -31,7 +31,11 @@ def type1(info):
 
 # length ?? => 05
 def type2(info):
-    pass
+    code = info['code']
+    fromUser = info['from']
+    toUser = info['to']
+    credit = info['credit']
+    return code + ' ' + fromUser + ' ' + toUser + ' ' + credit
 
 # length 52 => 03, 04
 def type3(info):

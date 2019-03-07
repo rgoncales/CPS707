@@ -49,6 +49,3 @@ def buy_ticket(usr, tickets):
         return res(trans, "Purchased tickets.\n")
     else:
         print("Purchase cancelled.\n")
-
-def refund_ticket(usr, accs, tickets):
-    pass

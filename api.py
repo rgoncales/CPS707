@@ -1,16 +1,16 @@
 from utils.permissions import auth
 from actions.auth import (session_new, session_end)
-from actions.users import (new_user, delete_user, add_credit)
+from actions.users import (new_user, delete_user, add_credit, refund_credit)
 from actions.tickets import (sell_ticket, buy_ticket)
 from utils.settings import (
     LOGOUT,
     CREATE,
     DELETE,
     ADD_CREDIT,
+    REFUND,
     SELL,
     BUY
 )
-
 
 class Api:
     def login(self, usr, accs):
@@ -44,6 +44,13 @@ class Api:
         try:
             auth(usr, ADD_CREDIT)
             return add_credit(usr, accs)
+        except Exception as e:
+            print(e)
+
+    def refund(self, usr, accs):
+        try:
+            auth(usr, REFUND)
+            return refund_credit(usr, accs)
         except Exception as e:
             print(e)
 
