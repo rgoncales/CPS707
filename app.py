@@ -1,7 +1,6 @@
 from user import User
 from typing import Dict
 from utils.parser import (readAccountFile, readTicketFile)
-from utils.errors import INVALID_TRANSACTION
 from api import Api
 from utils.settings import (
     LOGIN,
@@ -84,7 +83,7 @@ def main():
                 trans.append(res['result'])
                 print(res['success'])
         else:
-            print(INVALID_TRANSACTION)
+            print('Invalid transaction request.')
         print('')
 
 if __name__ == '__main__':
