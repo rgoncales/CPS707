@@ -45,6 +45,7 @@ if __name__ == '__main__':
 
     filenames.ACCOUNT_FILE = 'mock_accounts.txt'
     filenames.TICKET_FILE = 'mock_tickets.txt'
+    filenames.TRANSACTION_FILE = 'mock_transactions.txt'
 
     app.main()
 

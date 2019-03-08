@@ -23,10 +23,4 @@ class FileNames:
         self.TRANSACTION_FILE = 'transactions.txt'
         self.TICKET_FILE = 'tickets.txt'
 
-    def changeAccount(self, fileName):
-        self.ACCOUNT_FILE = fileName
-
-    def changeTransaction(self, fileName):
-        self.TRANSACTION_FILE = fileName
-
 filenames = FileNames()
