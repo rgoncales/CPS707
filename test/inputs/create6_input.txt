@@ -1,0 +1,7 @@
+LOGIN
+adminUsername
+CREATE
+myUsername1
+FS
+
+

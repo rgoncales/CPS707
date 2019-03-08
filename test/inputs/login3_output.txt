@@ -1,0 +1,7 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+
+Invalid transaction request.
+

@@ -1,0 +1,19 @@
+LOGIN
+Enter username: test2
+Logged in.
+
+SELL
+Event title: myEvent
+Tickets available: -1
+Event price (00.00): 
+[<class 'decimal.ConversionSyntax'>]
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

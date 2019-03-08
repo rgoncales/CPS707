@@ -1,0 +1,4 @@
+LOGIN
+test2
+ADD_CREDIT
+0

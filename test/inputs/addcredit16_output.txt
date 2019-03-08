@@ -1,0 +1,15 @@
+LOGIN
+Enter username: test3
+Logged in.
+
+ADD_CREDIT
+Enter credit amount: 999
+Added credit to user.
+
+1
+Invalid transaction request.
+
+ADD_CREDIT
+Enter credit amount: 0
+Added credit to user.
+

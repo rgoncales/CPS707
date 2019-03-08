@@ -1,0 +1,5 @@
+LOGIN
+adminUsername
+CREATE
+moreThanFifteenChars
+

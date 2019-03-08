@@ -1,0 +1,13 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+REFUND
+Refund from [username]: test3
+Refund to [username]: test2
+Amount to refund: test
+[<class 'decimal.ConversionSyntax'>]
+
+
+Invalid transaction request.
+

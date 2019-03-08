@@ -1,0 +1,23 @@
+LOGIN
+Enter username: test2
+Logged in.
+
+SELL
+Event title: myEvent
+Tickets available: 1
+Event price (00.00): 1
+Added new tickets for sale.
+
+SELL
+Event title: 
+Title must be 4 to 25 characters.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

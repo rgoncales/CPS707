@@ -1,7 +1,7 @@
 from user import User
 from typing import Dict
 from utils.parser import (readAccountFile, readTicketFile)
-from utils.errors import (INVALID_TRANSACTION, error)
+from utils.errors import INVALID_TRANSACTION
 from api import Api
 from utils.settings import (
     LOGIN,
@@ -13,18 +13,14 @@ from utils.settings import (
     SELL,
     BUY
 )
-import pprint
 
-usr = None
-accs = {}
-tickets = {}
-trans = []
-api = Api()
+def main():
+    usr = None
+    accs = {}
+    tickets = {}
+    trans = []
+    api = Api()
 
-#for debugging
-pp = pprint.PrettyPrinter(indent=4)
-
-if __name__ == '__main__':
     accs = readAccountFile()
     tickets = readTicketFile()
 
@@ -36,7 +32,7 @@ if __name__ == '__main__':
 
         elif INPUT == LOGIN:
             if usr != None:
-                error('User already logged in.')
+                print('User already logged in.')
                 continue
             res = api.login(usr, accs)
             if res != None:
@@ -88,5 +84,8 @@ if __name__ == '__main__':
                 trans.append(res['result'])
                 print(res['success'])
         else:
-            error(INVALID_TRANSACTION)
+            print(INVALID_TRANSACTION)
         print('')
+
+if __name__ == '__main__':
+    main()

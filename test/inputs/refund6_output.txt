@@ -1,0 +1,8 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+REFUND
+Refund from [username]: invalidUserName
+No such user.
+

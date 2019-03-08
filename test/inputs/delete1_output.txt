@@ -1,0 +1,11 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+DELETE
+User to delete: 
+User doesn't exist.
+
+
+Invalid transaction request.
+

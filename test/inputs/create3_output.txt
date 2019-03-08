@@ -1,0 +1,11 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+CREATE
+New username: moreThanFifteenChars
+Username must be 4 to 15 characters.
+
+
+Invalid transaction request.
+

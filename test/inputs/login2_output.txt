@@ -1,0 +1,15 @@
+LOGOUT
+User must be logged in.
+
+CREATE
+User must be logged in.
+
+DELETE
+User must be logged in.
+
+SELL
+User must be logged in.
+
+
+Invalid transaction request.
+

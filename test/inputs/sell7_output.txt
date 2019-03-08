@@ -1,0 +1,17 @@
+LOGIN
+Enter username: test2
+Logged in.
+
+SELL
+Event title: lloonnggeerrTThhaann25Cchhaarraacctteerrss
+Title must be 4 to 25 characters.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

@@ -1,0 +1,15 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+CREATE
+New username: myUsername1
+Type [AA, FS, SS, BS]: FS
+Created new user.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

@@ -1,0 +1,8 @@
+LOGIN
+test2
+SELL
+myEvent
+1
+1000
+
+

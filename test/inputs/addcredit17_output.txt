@@ -1,0 +1,8 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+ADD_CREDIT
+Enter credit amount: bobsburgers
+[<class 'decimal.ConversionSyntax'>]
+

@@ -1,0 +1,4 @@
+LOGIN
+adminUsername
+ADD_CREDIT
+bobsburgers

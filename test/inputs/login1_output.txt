@@ -1,0 +1,4 @@
+LOGIN
+Enter username: myUsername
+Logged in.
+

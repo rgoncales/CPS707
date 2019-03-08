@@ -1,0 +1,16 @@
+LOGIN
+Enter username: myUsername
+Logged in.
+
+DELETE
+Transaction not permitted.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

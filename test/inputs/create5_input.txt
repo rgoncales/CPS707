@@ -1,0 +1,8 @@
+LOGIN
+adminUsername
+CREATE
+newUsername
+FS
+CREATE
+newUsername
+FS

@@ -1,0 +1,9 @@
+rgoncales       AA 900000.00
+wbarker         FS 900000.99
+test1           FS 000000.00
+test2           SS 000000.00
+test3           BS 000000.00
+myUsername      FS 000000.00
+adminUsername   AA 000000.00
+sellerUsername  SS 000000.00
+END

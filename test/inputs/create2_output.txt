@@ -1,0 +1,10 @@
+LOGIN
+Enter username: myUsername
+Logged in.
+
+CREATE
+Transaction not permitted.
+
+
+Invalid transaction request.
+

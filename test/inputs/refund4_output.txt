@@ -1,0 +1,10 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+REFUND
+Refund from [username]: test3
+Refund to [username]: test2
+Amount to refund: 100.00
+User does not have enough credit.
+

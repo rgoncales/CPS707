@@ -1,0 +1,16 @@
+LOGIN
+Enter username: test3
+Logged in.
+
+SELL
+Transaction not permitted.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

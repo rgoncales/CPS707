@@ -1,0 +1,19 @@
+LOGIN
+Enter username: myUsername
+Logged in.
+
+LOGOUT
+Session finished.
+
+LOGOUT
+User must be logged in.
+
+CREATE
+User must be logged in.
+
+DELETE
+User must be logged in.
+
+SELL
+User must be logged in.
+

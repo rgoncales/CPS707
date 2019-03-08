@@ -1,0 +1,9 @@
+LOGIN
+Enter username: myUsername
+Logged in.
+
+LOGIN
+User already logged in.
+
+Invalid transaction request.
+

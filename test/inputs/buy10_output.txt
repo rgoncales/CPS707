@@ -1,0 +1,10 @@
+LOGIN
+Enter username: test3
+Logged in.
+
+BUY
+Event title: myEvent
+Tickets required: 4
+Enter seller name: sellerUserName
+No such event.
+

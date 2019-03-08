@@ -1,0 +1,8 @@
+LOGIN
+Enter username: test2
+Logged in.
+
+ADD_CREDIT
+Enter credit amount: 5.00
+Added credit to user.
+

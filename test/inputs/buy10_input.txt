@@ -1,0 +1,6 @@
+LOGIN
+test3
+BUY
+myEvent
+4
+sellerUserName

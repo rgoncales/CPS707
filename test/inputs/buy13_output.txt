@@ -1,0 +1,13 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+BUY
+Event title: myEvent
+Tickets required: 2
+Enter seller name: sellerUserName
+No such event.
+
+N
+Invalid transaction request.
+

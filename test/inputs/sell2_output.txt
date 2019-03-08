@@ -1,0 +1,14 @@
+LOGIN
+Enter username: test1
+Logged in.
+
+SELL
+Event title: 
+Title must be 4 to 25 characters.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

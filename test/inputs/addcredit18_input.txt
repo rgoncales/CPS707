@@ -1,0 +1,5 @@
+LOGIN
+adminUsername
+ADD_CREDIT
+-1
+myUsername

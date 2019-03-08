@@ -1,0 +1,8 @@
+LOGIN
+Enter username: myUsername
+Logged in.
+
+ADD_CREDIT
+Enter credit amount: 1000
+Added credit to user.
+

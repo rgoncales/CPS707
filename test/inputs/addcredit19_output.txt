@@ -1,0 +1,9 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+ADD_CREDIT
+Enter credit amount: 0
+Enter target username: myUsername
+Added credit to user.
+

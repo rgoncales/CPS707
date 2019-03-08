@@ -1,0 +1,10 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+REFUND
+Refund from [username]: test2
+Refund to [username]: test1
+Amount to refund: 0
+Refunded credit to user.
+

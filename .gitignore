@@ -2,3 +2,4 @@ __pycache__/
 accounts.txt
 transactions.txt
 tickets.txt
+test/outputs/*

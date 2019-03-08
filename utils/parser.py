@@ -1,13 +1,13 @@
 import re
 from decimal import Decimal
 from user import User
-from utils.settings import (ACCOUNT_FILE, TICKET_FILE)
+from utils.settings import filenames
 from utils.tickets import getKey
 
 # get accounts from input file
 def readAccountFile():
     accs = {}
-    srcFile = open(ACCOUNT_FILE, 'r')
+    srcFile = open(filenames.ACCOUNT_FILE, 'r')
     for line in srcFile:
         line = line.strip('\n')
         if line == 'END':
@@ -31,7 +31,7 @@ def getUserFromString(string: str) -> str:
 # get tickets from input file
 def readTicketFile():
     tickets = {}
-    srcFile = open(TICKET_FILE, 'r')
+    srcFile = open(filenames.TICKET_FILE, 'r')
     for line in srcFile:
         line = line.strip('\n')
         if line == 'END':

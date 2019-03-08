@@ -1,0 +1,18 @@
+LOGIN
+Enter username: test2
+Logged in.
+
+SELL
+Event title: myEvent
+Tickets available: 101
+Max number of tickets is 100.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+

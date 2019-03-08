@@ -1,0 +1,16 @@
+LOGIN
+Enter username: adminUsername
+Logged in.
+
+CREATE
+New username: newUsername
+Type [AA, FS, SS, BS]: FS
+Created new user.
+
+CREATE
+New username: newUsername
+Username already exists.
+
+FS
+Invalid transaction request.
+

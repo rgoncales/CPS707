@@ -1,0 +1,21 @@
+LOGIN
+Enter username: test2
+Logged in.
+
+SELL
+Event title: myEvent
+Tickets available: 1t
+invalid literal for int() with base 10: '1t'
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
+
+Invalid transaction request.
+
